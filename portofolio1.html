@@ -1,0 +1,387 @@
+<html><head><base href="/" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --primary: #2962ff;
+  --secondary: #7b1fa2;
+  --accent: #00b8d4;
+  --text: #333;
+  --bg: #fafafa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+section {
+  padding: 5rem 2rem;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  animation: glow 2s ease-in-out infinite;
+}
+
+.hero-info {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+.star {
+  position: fixed;
+  width: 4px; /* Increased size */
+  height: 4px; /* Increased size */
+  background: rgba(41,98,255,0.9); /* More vivid blue and higher opacity */
+  border-radius: 50%;
+  pointer-events: none;
+  animation: starFloat 15s linear infinite;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(41,98,255,0.8); /* Added glow effect */
+}
+
+@keyframes starFloat {
+  0% {
+    transform: translateY(-100%) translateX(-100%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(100vw) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.cursor-light {
+  width: 40px; /* Increased size */
+  height: 40px; /* Increased size */
+  background: radial-gradient(circle, rgba(41,98,255,0.8) 0%, rgba(41,98,255,0) 70%); /* More vivid glow */
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  box-shadow: 0 0 20px rgba(41,98,255,0.6); /* Added extra glow */
+}
+
+.circuit-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+}
+
+.objectives {
+  background: white;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--primary);
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.objective-card {
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.objective-card h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.about-section {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mission-list {
+  list-style: none;
+  margin-top: 2rem;
+}
+
+.mission-list li {
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid var(--accent);
+  background: rgba(0,184,212,0.1);
+}
+
+.certificate-section {
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  color: white;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.1);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+input {
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.contact-section {
+  background: white;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  font-size: 2rem;
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+.rotating-image {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+  50% { text-shadow: 0 0 30px rgba(255,255,255,0.8); }
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .rotating-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+</style>
+</head>
+<body>
+
+<img src="IMG-20240412-WA0066-removebg-preview.png" alt="Logo HETEC" class="rotating-image">
+
+<section class="hero">
+  <svg class="circuit-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+    <path d="M0,500 Q250,400 500,500 T1000,500" stroke="white" fill="none" stroke-width="2">
+      <animate attributeName="d" 
+               dur="10s" 
+               repeatCount="indefinite"
+               values="M0,500 Q250,400 500,500 T1000,500;
+                      M0,500 Q250,600 500,500 T1000,500;
+                      M0,500 Q250,400 500,500 T1000,500"/>
+    </path>
+  </svg>
+  
+  <div class="hero-content">
+    <h1 class="hero-title">Yeo Yacouba Abdoul Karim</h1>
+    <div class="hero-info">
+      <p>Développeur Fullstack Passionné</p>
+      <p>"Transformer vos idées en solutions numériques innovantes."</p>
+    </div>
+    <div class="hero-description">
+      <p>Bonjour, je suis Yeo Yacouba Abdoul Karim, développeur fullstack basé à Abidjan, Côte d'Ivoire. À seulement 20 ans, j'ai déjà conçu plusieurs applications web et mobiles innovantes qui répondent à des besoins réels. Explorez mon portfolio pour découvrir mes projets et compétences.</p>
+    </div>
+  </div>
+</section>
+
+<section class="objectives">
+  <h2 class="section-title">Mes Compétences</h2>
+  <div class="objectives-grid">
+    <div class="objective-card">
+      <h3>🎯 Frontend</h3>
+      <p>HTML, CSS, JavaScript, React.js</p>
+    </div>
+    <div class="objective-card">
+      <h3>💡 Backend</h3>
+      <p>Node.js, PHP</p>
+    </div>
+    <div class="objective-card">
+      <h3>🤝 Mobile</h3>
+      <p>React Native</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <h2 class="section-title">Mes Réalisations</h2>
+  <div class="about-content">
+    <ul class="mission-list">
+      <li><strong>KidySafe :</strong> Application connectée pour la protection des enfants utilisant React Native et Node.js</li>
+      <li><strong>FoodDelivery :</strong> Application de commande et livraison de nourriture</li>
+      <li><strong>Mini Réseau Social :</strong> Plateforme sociale minimaliste avec React.js et Node.js</li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact-section">
+  <h2 class="section-title">Contactez-moi</h2>
+  <p>Email: yeodrpieft@gmail.com</p>
+  <p>Téléphone: 05 56 40 19 23 / 05 04 21 29 82</p>
+  <div class="social-links">
+    <a href="https://linkedin.com"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com"><i class="fab fa-github"></i></a>
+    <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+  </div>
+</section>
+
+<script>
+// Enhanced cursor light effect
+function createCursorLight() {
+  const light = document.createElement('div');
+  light.className = 'cursor-light';
+  document.body.appendChild(light);
+  
+  document.addEventListener('mousemove', (e) => {
+    light.style.left = e.clientX + 'px';
+    light.style.top = e.clientY + 'px';
+  });
+}
+
+// Enhanced star creation function
+function createStars() {
+  const numberOfStars = 200;
+  
+  setInterval(() => {
+    const star = document.createElement('div');
+    star.className = 'star';
+    
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.top = '-5px';
+    
+    const duration = 8 + Math.random() * 15;
+    star.style.animation = `starFloat ${duration}s linear`;
+    
+    document.body.appendChild(star);
+    
+    setTimeout(() => {
+      star.remove();
+    }, duration * 1000);
+  }, 50);
+}
+
+window.addEventListener('load', () => {
+  createCursorLight();
+  createStars();
+});
+</script>
+
+</body>
+</html>
